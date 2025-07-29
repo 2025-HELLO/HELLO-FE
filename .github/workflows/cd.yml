@@ -2,7 +2,13 @@ name: CD
 
 on:
   push:
-    branches: [develop, main]
+    branches:
+      - develop
+      - main
+  pull_request:
+    branches:
+      - develop
+      - main
 
 permissions:
   contents: read
