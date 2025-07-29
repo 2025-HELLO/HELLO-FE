@@ -1,23 +1,60 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
-import { globalIgnores } from 'eslint/config'
+import js from '@eslint/js';
+import globals from 'globals';
+import * as react from 'eslint-plugin-react';
+import * as reactHooks from 'eslint-plugin-react-hooks';
+import * as reactRefresh from 'eslint-plugin-react-refresh';
+import parser from '@typescript-eslint/parser';
+import tseslintPlugin from '@typescript-eslint/eslint-plugin';
+import * as jsxA11y from 'eslint-plugin-jsx-a11y';
+import * as eslintPluginImport from 'eslint-plugin-import';
+import * as prettierPlugin from 'eslint-plugin-prettier';
+import prettierConfig from 'eslint-config-prettier';
+import { globalIgnores } from 'eslint/config';
 
-export default tseslint.config([
+export default [
   globalIgnores(['dist']),
+  js.configs.recommended,
+  prettierConfig,
   {
     files: ['**/*.{ts,tsx}'],
-    extends: [
-      js.configs.recommended,
-      tseslint.configs.recommended,
-      reactHooks.configs['recommended-latest'],
-      reactRefresh.configs.vite,
-    ],
     languageOptions: {
-      ecmaVersion: 2020,
+      parser,
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       globals: globals.browser,
     },
+    plugins: {
+      react: react.default,
+      'react-hooks': reactHooks.default,
+      'react-refresh': reactRefresh.default,
+      import: eslintPluginImport.default,
+      prettier: prettierPlugin.default,
+      'jsx-a11y': jsxA11y.default,
+      '@typescript-eslint': tseslintPlugin,
+    },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+    ignores: ['node_modules', 'dist', 'dist-ssr', '*.config.js', '*.config.ts'],
+    rules: {
+      'react/react-in-jsx-scope': 'off',
+      'no-console': 'off',
+      'no-unused-vars': 'warn',
+      curly: 'error',
+      'import/order': [
+        'warn',
+        {
+          groups: [['builtin', 'external'], 'internal', ['parent', 'sibling', 'index']],
+          'newlines-between': 'always',
+        },
+      ],
+      'react/self-closing-comp': 'warn',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      'react/jsx-pascal-case': 'error',
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      'prettier/prettier': 'error',
+    },
   },
-])
+];
