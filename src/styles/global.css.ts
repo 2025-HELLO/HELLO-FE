@@ -1,14 +1,14 @@
-import { globalStyle } from "@vanilla-extract/css";
+import { globalStyle } from '@vanilla-extract/css';
 
-import "./reset.css.ts";
+import './reset.css.ts';
 
-globalStyle("html", {
-  fontSize: "62.5%",
+globalStyle('html', {
+  fontSize: '62.5%',
 });
 
-globalStyle("body", {
+globalStyle('body', {
   fontFamily: "'Pretendard', sans-serif",
-  backgroundColor: "#fff",
-  minHeight: "100vh",
-  overflowX: "hidden",
+  backgroundColor: '#fff',
+  minHeight: '100vh',
+  overflowX: 'hidden',
 });
