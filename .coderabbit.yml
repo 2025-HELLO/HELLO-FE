@@ -1,16 +1,17 @@
 language: "ko-KR"
-early_access: false 
+early_access: false
 
 reviews:
   profile: "chill"
-  request_changes_workflow: true 
-  high_level_summary: true 
-  poem: false 
+  request_changes_workflow: true
+  high_level_summary: true
+  poem: false
   review_status: true
-  collapse_walkthrough: false 
+  collapse_walkthrough: false
   auto_review:
     enabled: true
-    drafts: false 
+    drafts: false
 
 chat:
   auto_reply: true
+  
