@@ -31,4 +31,4 @@ export const colors = {
   yellow04: '#FFCE3B',
 
   error01: '#FF0000',
-};
+} as const;
