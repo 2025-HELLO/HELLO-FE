@@ -1,8 +1,10 @@
+import { Outlet } from 'react-router-dom';
+
 const Signup = () => {
   return (
-    <>
-      <div>회원가입</div>
-    </>
+    <section>
+      <Outlet />
+    </section>
   );
 };
 
