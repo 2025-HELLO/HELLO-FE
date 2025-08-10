@@ -3,6 +3,7 @@ import { PATH } from '@shared/constants/path';
 import Layout from '@shared/components/layout/Layout';
 
 import Home from '@/pages/home/page/Home';
+import Signup from '@/pages/signup/page/Signup';
 
 export const MainRoutes: RouteObject[] = [
   {
@@ -11,6 +12,10 @@ export const MainRoutes: RouteObject[] = [
       {
         path: PATH.ROOT,
         element: <Home />,
+      },
+      {
+        path: PATH.SIGNUP,
+        element: <Signup />,
       },
     ],
   },
