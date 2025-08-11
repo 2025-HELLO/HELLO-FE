@@ -1,7 +1,7 @@
 ---
-name: "\U0001F6E0️ Refactor"
+name: "\U0001F6E0️ Refac"
 about: 리팩토링
-title: "[Refactor]: "
+title: "[Refac]: "
 labels: ''
 assignees: ''
 
