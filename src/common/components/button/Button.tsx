@@ -1,9 +1,11 @@
+import React from 'react';
 import type { MouseEventHandler } from 'react';
 
 import * as styles from './Button.css.ts';
 
 interface ButtonProps {
   label: string;
+  icon?: React.ReactNode;
   variant?: 'primary' | 'secondary';
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
@@ -12,6 +14,7 @@ interface ButtonProps {
 
 const Button = ({
   label,
+  icon,
   variant = 'primary',
   disabled = false,
   onClick,
@@ -26,6 +29,7 @@ const Button = ({
       onClick={onClick}
       type={type}
     >
+      {icon && <span className={styles.iconWrapper}>{icon}</span>}
       {label}
     </button>
   );
