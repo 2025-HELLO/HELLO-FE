@@ -15,6 +15,6 @@ export const baseButton = style([
   },
 ]);
 
-export const primaryButton = style([baseButton, { backgroundColor: colors.blue01 }]);
+export const primaryButton = style([baseButton, { backgroundColor: colors.blue02 }]);
 
 export const secondaryButton = style([baseButton, { backgroundColor: colors.blue03 }]);
