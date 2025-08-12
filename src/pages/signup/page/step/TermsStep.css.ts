@@ -11,14 +11,12 @@ export const container = style([
 
 export const title = style([
   fonts.title01,
-  colors.black01,
-  { width: '30rem', marginBottom: '2.2rem' },
+  { color: colors.black01, width: '30rem', marginBottom: '2.2rem' },
 ]);
 
 export const description = style([
   fonts.body03,
-  colors.black01,
-  { width: '30rem', marginBottom: '3.2rem' },
+  { color: colors.black01, width: '30rem', marginBottom: '3.2rem' },
 ]);
 
 export const allTerms = style([
@@ -34,7 +32,7 @@ export const allTerms = style([
   },
 ]);
 
-export const allTermsText = style([fonts.caption01, colors.black01]);
+export const allTermsText = style([fonts.caption01, { color: colors.black01 }]);
 
 export const termsContainer = style([
   layout.flexColumn,
@@ -53,7 +51,7 @@ export const terms = style([
   },
 ]);
 
-export const termsText = style([fonts.caption02, colors.black01]);
+export const termsText = style([fonts.caption02, { color: colors.black01 }]);
 
 export const buttonContainer = style([
   {

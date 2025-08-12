@@ -11,14 +11,12 @@ export const container = style([
 
 export const title = style([
   fonts.title01,
-  colors.black01,
-  { marginBottom: '2.2rem', width: '30rem' },
+  { marginBottom: '2.2rem', width: '30rem', color: colors.black01 },
 ]);
 
 export const description = style([
   fonts.body03,
-  colors.black01,
-  { marginBottom: '3.2rem', width: '30rem' },
+  { marginBottom: '3.2rem', width: '30rem', color: colors.black01 },
 ]);
 
 export const verifyCodeContainer = style([
@@ -34,7 +32,7 @@ export const verifyCodeContainer = style([
   },
 ]);
 
-export const verifyCodeTitle = style([fonts.caption01, colors.black01]);
+export const verifyCodeTitle = style([fonts.caption01, { color: colors.black01 }]);
 
 export const verifyCodeInputContainer = style([
   layout.flexAlignCenter,
@@ -68,11 +66,11 @@ export const descriptionContainer = style([
   },
 ]);
 
-export const descriptionTitle = style([fonts.title04, colors.black01, { display: 'block' }]);
+export const descriptionTitle = style([fonts.title04, { display: 'block', color: colors.black01 }]);
 
-export const descriptionText = style([fonts.body01, colors.black01]);
+export const descriptionText = style([fonts.body01, { color: colors.black01 }]);
 
-export const descriptionBody = style([fonts.caption02, colors.grey11, { display: 'block' }]);
+export const descriptionBody = style([fonts.caption02, { display: 'block', color: colors.grey11 }]);
 
 export const buttonContainer = style([
   {
