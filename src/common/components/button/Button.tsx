@@ -21,6 +21,20 @@ const Button = ({
   type = 'button',
 }: ButtonProps) => {
   const buttonClass = variant === 'secondary' ? styles.secondaryButton : styles.primaryButton;
+
+  const renderIcon = () => {
+    if (!icon) {
+      return null;
+    }
+    if (React.isValidElement(icon)) {
+      const el = icon as React.ReactElement<{ className?: string }>;
+      return React.cloneElement(el, {
+        className: [styles.iconWrapper, el.props.className].filter(Boolean).join(' '),
+      });
+    }
+    return icon;
+  };
+
   return (
     <button
       className={buttonClass}
@@ -29,7 +43,7 @@ const Button = ({
       onClick={onClick}
       type={type}
     >
-      {icon && <span className={styles.iconWrapper}>{icon}</span>}
+      {renderIcon()}
       {label}
     </button>
   );
