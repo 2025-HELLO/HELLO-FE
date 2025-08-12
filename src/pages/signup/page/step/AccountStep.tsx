@@ -11,7 +11,7 @@ const AccountStep = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate(`${PATH.SIGNUP}/account`);
+    navigate(`${PATH.SIGNUP}/complete`);
   };
 
   return (

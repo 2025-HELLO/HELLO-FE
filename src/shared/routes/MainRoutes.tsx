@@ -31,7 +31,7 @@ export const MainRoutes: RouteObject[] = [
           { path: 'terms', element: <TermsStep /> },
           { path: 'verify', element: <VerifyStep /> },
           { path: 'account', element: <AccountStep /> },
-          { path: 'done', element: <CompleteStep /> },
+          { path: 'complete', element: <CompleteStep /> },
         ],
       },
     ],
