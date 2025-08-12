@@ -33,5 +33,5 @@
       "@styles/*": ["src/styles/*"],
     }
   },
-  "include": ["src", "src/pages/reminisce/mocks/reminisce.mock.ts"]
+  "include": ["src"]
 }

@@ -51,11 +51,13 @@ export const cardDateContainer = style([
   },
 ]);
 
-export const cardDateIcon = style({
-  width: '2rem',
-  height: '2rem',
-  marginRight: '1rem',
-});
+export const cardDateIcon = style([
+  {
+    width: '2rem',
+    height: '2rem',
+    marginRight: '1rem',
+  },
+]);
 
 export const cardDate = style([
   fonts.body05,
