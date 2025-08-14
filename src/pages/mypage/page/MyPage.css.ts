@@ -45,12 +45,12 @@ export const verification = style([
   },
 ]);
 
-export const inputGroup = style([
-  layout.flexColumn,
-  {
-    marginTop: '3rem',
-  },
-]);
+export const wakeupSection = style({
+  marginTop: '3rem',
+  width: '30rem',
+});
+
+export const inputGroup = style([layout.flexColumn]);
 
 export const inputLabel = style([fonts.body04, { color: colors.black01, marginBottom: '1rem' }]);
 

@@ -52,15 +52,18 @@ const MyPage = () => {
       <div className={s.email}>{userData.email}</div>
       <div className={s.verification}>인증코드: {userData.verificationCode}</div>
 
-      <WakeupTimePicker
-        selectedHour={selectedHour}
-        selectedMinute={selectedMinute}
-        ampm={ampm}
-        showTimePicker={showTimePicker}
-        togglePicker={() => setShowTimePicker(!showTimePicker)}
-        updateTime={updateTime}
-        setAmpm={setAmpm}
-      />
+      <div className={s.wakeupSection}>
+        <div className={s.mealLabel}>기상 알림 시간 선택</div>
+        <WakeupTimePicker
+          selectedHour={selectedHour}
+          selectedMinute={selectedMinute}
+          ampm={ampm}
+          showTimePicker={showTimePicker}
+          togglePicker={() => setShowTimePicker(!showTimePicker)}
+          updateTime={updateTime}
+          setAmpm={setAmpm}
+        />
+      </div>
 
       <div className={s.mealSection}>
         <div className={s.mealLabel}>식사 알림 시간 선택</div>
