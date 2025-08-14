@@ -3,7 +3,7 @@ import React from 'react';
 
 import * as s from '../page/MyPage.css';
 
-import { IcUparrow, IcDownarrow } from '@/assets/svgs';
+import { IcUparrow, IcDownarrow, IcClock } from '@/assets/svgs';
 
 interface WakeupTimePickerProps {
   selectedHour: number;
@@ -35,7 +35,8 @@ const WakeupTimePicker = ({
         tabIndex={0}
         onClick={togglePicker}
       >
-        {formattedTime}
+        <span className={s.timeTextLabel}>{formattedTime}</span>
+        <IcClock className={s.clockIcon} />
       </div>
 
       {showTimePicker && (

@@ -74,6 +74,16 @@ export const input = style([
   },
 ]);
 
+export const timeTextLabel = style({
+  fontSize: '1.6rem',
+});
+
+export const clockIcon = style({
+  marginLeft: 'auto',
+  width: '2rem',
+  height: '2rem',
+});
+
 export const timePicker = style({
   backgroundColor: colors.white01,
   border: `1px solid ${colors.grey10}`,
