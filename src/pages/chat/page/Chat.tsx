@@ -1,5 +1,4 @@
 // src/pages/chat/page/Chat.tsx
-import * as React from 'react';
 
 const Chat = () => {
   return (
