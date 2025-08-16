@@ -3,6 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { PATH } from '@shared/constants/path';
 import Layout from '@shared/components/layout/Layout';
 
+import ChatHeader from '@/common/components/header/ChatHeader';
 import PageHeader from '@/common/components/header/PageHeader';
 import Header from '@/common/components/header/Header';
 import Home from '@/pages/home/page/Home';
@@ -56,9 +57,9 @@ export const MainRoutes: RouteObject[] = [
     children: [{ path: PATH.MYPAGE, element: <MyPage /> }],
   },
 
-  //채팅
+  // 채팅 — 여기만 전용 헤더 사용
   {
-    element: <Layout header={<PageHeader title="채팅" />} />,
+    element: <Layout header={<ChatHeader title="채팅" />} />,
     children: [{ path: PATH.CHAT, element: <Chat /> }],
   },
 ];
