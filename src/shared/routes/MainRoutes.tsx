@@ -7,6 +7,7 @@ import ChatHeader from '@/common/components/header/ChatHeader';
 import PageHeader from '@/common/components/header/PageHeader';
 import Header from '@/common/components/header/Header';
 import Home from '@/pages/home/page/Home';
+import Login from '@/pages/login/page/Login';
 import Signup from '@/pages/signup/page/Signup';
 import TermsStep from '@/pages/signup/page/step/TermsStep';
 import VerifyStep from '@/pages/signup/page/step/VerifyStep';
@@ -26,6 +27,12 @@ export const MainRoutes: RouteObject[] = [
     children: [{ path: PATH.ROOT, element: <Home /> }],
   },
 
+  // 로그인
+  {
+    element: <Layout />,
+    children: [{ path: PATH.LOGIN, element: <Login /> }],
+  },
+
   // 회원가입
   {
     element: <Layout header={<PageHeader title="회원가입" />} />,
@@ -43,6 +50,7 @@ export const MainRoutes: RouteObject[] = [
       },
     ],
   },
+
   // 회상노트
   {
     element: <Layout header={<PageHeader title="회상노트" />} />,
@@ -52,18 +60,20 @@ export const MainRoutes: RouteObject[] = [
       { path: `${PATH.REMINISCE}/:id`, element: <ReminisceDetail /> },
     ],
   },
+
   // 마이페이지
   {
     element: <Layout header={<PageHeader title="마이페이지" />} />,
     children: [{ path: PATH.MYPAGE, element: <MyPage /> }],
   },
 
-  // 채팅 — 여기만 전용 헤더 사용
+  // 채팅
   {
     element: <Layout header={<ChatHeader title="채팅" />} />,
     children: [{ path: PATH.CHAT, element: <Chat /> }],
   },
-  // 채팅 리스트 — PageHeader
+
+  // 채팅 리스트
   {
     element: <Layout header={<PageHeader title="채팅 기록" />} />,
     children: [{ path: PATH.CHATLIST, element: <ChatList /> }],
