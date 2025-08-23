@@ -11,7 +11,6 @@ type ScheduleItem = {
   place?: string;
   note?: string;
   done?: boolean;
-  emphasized?: boolean; // 파란 카드 강조 여부
 };
 
 const KOR_WEEKDAY = ['일', '월', '화', '수', '목', '금', '토'];
@@ -59,12 +58,11 @@ const MOCK: Record<string, ScheduleItem[]> = {
       id: 'a',
       time: '11시30분',
       ymd: todayKey,
-      ymdLabel: todayLabel, // ✅ label 필드 빠뜨리지 말고 넣어야 함
+      ymdLabel: todayLabel,
       title: '치과 예약',
       place: '노량진 지점',
       note: '7일 전에 알림톡 일정입니다.',
       done: true,
-      emphasized: true,
     },
     {
       id: 'b',
@@ -99,7 +97,7 @@ function groupByTime(items: ScheduleItem[]) {
   return Array.from(map.entries()); // 데이터 순서 유지
 }
 
-/* ✅ 선택한 날 ~ 그 주 토요일까지 일정 모으기 */
+/* 선택한 날 ~ 그 주 토요일까지 일정 모으기 */
 const getWeekTrailItems = (fromDate: Date): ScheduleItem[] => {
   const last = endOfWeek(fromDate);
   const out: ScheduleItem[] = [];
@@ -172,6 +170,7 @@ const Schedule = () => {
       {/* 타임라인 헤더 (시간 | 일정) */}
       <div className={styles.timelineHeader}>
         <span className={styles.tlLabelTime}>시간</span>
+        <span className={styles.tlHeaderDivider} aria-hidden />
         <span className={styles.tlLabelEvent}>일정</span>
       </div>
 
@@ -189,15 +188,15 @@ const Schedule = () => {
 
                 <div className={styles.timeMarks}>
                   <label className={styles.checkboxWrap} title="완료">
-                    {/* 1) 상태는 input이 가짐 */}
+                    {/* 상태는 input이 가짐 */}
                     <input
                       type="checkbox"
                       defaultChecked={arr[0]?.done}
                       className={styles.checkInput}
                     />
-                    {/* 2) 항상 보이는 사각형 아이콘 */}
+                    {/* 항상 보이는 사각형 아이콘 */}
                     <img src="/svgs/ic_schedule_rect.svg" alt="" className={styles.checkRect} />
-                    {/* 3) 체크되면 보이는 검정 틱 */}
+                    {/* 체크되면 보이는 검정 틱 */}
                     <span className={styles.checkTick} />
                   </label>
                 </div>
@@ -208,27 +207,30 @@ const Schedule = () => {
 
               {/* 오른쪽: 카드들 */}
               <div className={styles.cardsCol}>
-                {arr.map((it) => (
-                  <article
-                    key={it.id}
-                    className={[styles.card, it.emphasized ? styles.cardEmph : ''].join(' ')}
-                  >
-                    <div className={styles.cardInner}>
-                      <div className={styles.cardTitle}>{it.title}</div>
-                      {it.place && <div className={styles.cardPlace}>{it.place}</div>}
-                      {it.note && (
-                        <div className={styles.cardNote}>
-                          <span className={styles.noteDot} />
-                          {it.note}
-                        </div>
-                      )}
-                    </div>
+                {arr.map((it) => {
+                  const isTodayCard = it.ymd === todayKey; // ✅ 오늘 일정만 파란색
+                  return (
+                    <article
+                      key={it.id}
+                      className={[styles.card, isTodayCard ? styles.cardToday : ''].join(' ')}
+                    >
+                      <div className={styles.cardInner}>
+                        <div className={styles.cardTitle}>{it.title}</div>
+                        {it.place && <div className={styles.cardPlace}>{it.place}</div>}
+                        {it.note && (
+                          <div className={styles.cardNote}>
+                            <span className={styles.noteDot} />
+                            {it.note}
+                          </div>
+                        )}
+                      </div>
 
-                    <button type="button" className={styles.cardMore} aria-label="더보기">
-                      <img src="/svgs/ic_schedule_more.svg" alt="" />
-                    </button>
-                  </article>
-                ))}
+                      <button type="button" className={styles.cardMore} aria-label="더보기">
+                        <img src="/svgs/ic_schedule_more.svg" alt="" />
+                      </button>
+                    </article>
+                  );
+                })}
               </div>
             </div>
           ))
