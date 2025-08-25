@@ -221,7 +221,7 @@ export const cardNote = style({
   gap: '0.8rem',
   marginTop: '0.2rem',
   ...fonts.body05, // 1.4rem / 400
-  color: colors.white01,
+  color: colors.grey02,
   writingMode: 'horizontal-tb', // ✅
   wordBreak: 'keep-all',
 });
@@ -229,7 +229,7 @@ export const noteDot = style({
   width: '0.8rem',
   height: '0.8rem',
   borderRadius: '50%',
-  background: colors.grey08,
+  background: colors.grey02,
 });
 export const cardMore = style({
   width: '3.2rem',
