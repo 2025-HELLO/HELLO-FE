@@ -6,6 +6,7 @@ import { IcUser, IcLock, IcEye, IcEyeoff } from '@assets/svgs/index';
 import * as s from './Login.css';
 
 import Button from '@/common/components/button/Button';
+import { PATH } from '@/shared/constants/path';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -75,7 +76,7 @@ const Login = () => {
       </form>
       <p className={s.signupText}>
         아직 계정이 없다면{' '}
-        <Link to="/singnup" className={s.signupLink}>
+        <Link to={PATH.SIGNUP} className={s.signupLink}>
           회원가입
         </Link>
         을 해주세요
