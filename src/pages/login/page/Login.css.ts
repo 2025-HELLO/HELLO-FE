@@ -95,3 +95,41 @@ export const iconRight = style({
 export const buttonContainer = style({
   marginTop: '3.5rem',
 });
+
+export const signupText = style([
+  fonts.body02,
+  {
+    color: colors.grey08,
+    textAlign: 'center',
+    position: 'fixed',
+    bottom: '2rem',
+    left: 0,
+    right: 0,
+    width: '100%',
+  },
+  {
+    '@media': {
+      '(min-width: 768px)': {
+        position: 'static',
+        marginTop: '2rem',
+        width: 'auto',
+        left: 'auto',
+        right: 'auto',
+        bottom: 'auto',
+      },
+    },
+  },
+]);
+
+export const signupLink = style([
+  fonts.body02,
+  {
+    color: colors.blue02,
+    textDecoration: 'none',
+    selectors: {
+      '&:hover': {
+        textDecoration: 'none',
+      },
+    },
+  },
+]);

@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react';
+import { Link } from 'react-router-dom';
 import logoImg from '@assets/images/logo.png';
 import { IcUser, IcLock, IcEye, IcEyeoff } from '@assets/svgs/index';
 
@@ -72,6 +73,13 @@ const Login = () => {
           <Button label="로그인" variant="secondary" type="submit" />
         </div>
       </form>
+      <p className={s.signupText}>
+        아직 계정이 없다면{' '}
+        <Link to="/singnup" className={s.signupLink}>
+          회원가입
+        </Link>
+        을 해주세요
+      </p>
     </div>
   );
 };
