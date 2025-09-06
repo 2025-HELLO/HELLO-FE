@@ -42,7 +42,11 @@ const Home = () => {
         <button type="button" className={styles.cardMemo} onClick={() => navigate('/reminisce')}>
           <div className={styles.cardTextBlock}>
             <p className={styles.cardTitle}>회상기록</p>
-            <p className={styles.cardSub}>지난날의 일기를\n정리해 주세요</p>
+            <p className={styles.cardSub}>
+              지난날의 일기를
+              <br />
+              정리해 주세요
+            </p>
           </div>
           <img src="/svgs/home/reminisce_book.svg" alt="" aria-hidden className={styles.cardArt} />
         </button>
@@ -50,7 +54,11 @@ const Home = () => {
         <button type="button" className={styles.cardGame}>
           <div className={styles.cardTextBlock}>
             <p className={styles.cardTitle}>게임</p>
-            <p className={styles.cardSub}>부모님의 추억을\n복원해 주세요!</p>
+            <p className={styles.cardSub}>
+              부모님의 추억을
+              <br />
+              복원해 주세요!
+            </p>
           </div>
           <img src="/svgs/home/game_puzzle.svg" alt="" aria-hidden className={styles.cardArt} />
         </button>
