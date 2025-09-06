@@ -70,7 +70,7 @@ const Home = () => {
           <p className={styles.cardTitle}>일정</p>
           <p className={styles.cardSub}>일정들을 확인해 보세요</p>
         </div>
-        <img src="/svgs/home/calendar.svg" alt="" aria-hidden className={styles.cardArt} />
+        <img src="/svgs/home/calendar.svg" alt="" aria-hidden className={styles.scheduleArt} />
         <button
           type="button"
           className={styles.scheduleOverlay}
