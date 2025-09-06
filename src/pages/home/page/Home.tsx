@@ -29,7 +29,7 @@ const Home = () => {
       <section className={styles.chatCta} aria-label="챗봇과 대화하기">
         <div className={styles.chatTexts}>
           <h2 className={styles.chatTitle}>챗봇과 대화하기</h2>
-          <p className={styles.chatDesc}>대화해보세요! 한 번 눌러보세요 휴라이</p>
+          <p className={styles.chatDesc}>버튼을 눌러 챗봇과 대화해보세요</p>
           <button type="button" className={styles.chatButton} onClick={() => navigate('/chat')}>
             채팅하러 가기
           </button>
@@ -43,7 +43,7 @@ const Home = () => {
           <div className={styles.cardTextBlock}>
             <p className={styles.cardTitle}>회상기록</p>
             <p className={styles.cardSub}>
-              지난날의 일기를
+              지난날의 추억을
               <br />
               정리해 주세요
             </p>
@@ -55,9 +55,9 @@ const Home = () => {
           <div className={styles.cardTextBlock}>
             <p className={styles.cardTitle}>게임</p>
             <p className={styles.cardSub}>
-              부모님의 추억을
+              간단한 게임을
               <br />
-              복원해 주세요!
+              즐겨 보세요!
             </p>
           </div>
           <img src="/svgs/home/game_puzzle.svg" alt="" aria-hidden className={styles.cardArt} />
