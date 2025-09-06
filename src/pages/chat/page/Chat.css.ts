@@ -73,7 +73,7 @@ export const bubbleMe = style([
 export const bubbleOther = style([
   bubble,
   {
-    background: colors.grey11,
+    background: '#F2F2F7',
     color: colors.black01,
     borderTopLeftRadius: '0.6rem',
   },
