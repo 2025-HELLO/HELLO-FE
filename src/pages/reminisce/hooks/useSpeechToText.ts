@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import type {
   Options,
@@ -17,12 +17,12 @@ const useSpeechToText = (options?: Options): UseSpeechToTextReturn => {
     onFinalResult,
   } = options || {};
 
-  const RecognitionClass = useMemo(() => getRecognitionClass(), []) as
-    | SpeechRecognitionCtorLike
-    | undefined;
+  const RecognitionClass = getRecognitionClass() as SpeechRecognitionCtorLike | undefined;
   const isSupported = !!RecognitionClass;
 
   const recognitionRef = useRef<SpeechRecognitionInstance | null>(null);
+  const interimRef = useRef('');
+  const hasFinalRef = useRef(false);
 
   const [isRecording, setIsRecording] = useState(false);
   const [transcript, setTranscript] = useState('');
@@ -31,6 +31,9 @@ const useSpeechToText = (options?: Options): UseSpeechToTextReturn => {
 
   const start = useCallback(() => {
     if (!isSupported) {
+      return;
+    }
+    if (isRecording) {
       return;
     }
 
@@ -63,9 +66,11 @@ const useSpeechToText = (options?: Options): UseSpeechToTextReturn => {
             interimText += r[0].transcript;
           }
         }
+        interimRef.current = interimText;
         setPartialTranscript(interimText);
         if (finalText) {
           const cleaned = finalText.trim();
+          hasFinalRef.current = true;
           setTranscript((prev) => append(prev, cleaned));
           onFinalResult?.(cleaned);
         }
@@ -81,16 +86,20 @@ const useSpeechToText = (options?: Options): UseSpeechToTextReturn => {
       };
 
       recognition.onend = () => {
-        const flushed = partialTranscript.trim();
-        if (flushed) {
+        const flushed = interimRef.current.trim();
+        if (!hasFinalRef.current && flushed) {
           setTranscript((prev) => append(prev, flushed));
-          setPartialTranscript('');
           onFinalResult?.(flushed);
         }
+        interimRef.current = '';
+        hasFinalRef.current = false;
+        setPartialTranscript('');
         setIsRecording(false);
       };
 
       setIsRecording(true);
+      interimRef.current = '';
+      hasFinalRef.current = false;
       setPartialTranscript('');
       setError(null);
       recognition.start();
@@ -99,15 +108,7 @@ const useSpeechToText = (options?: Options): UseSpeechToTextReturn => {
       setError(err);
       setIsRecording(false);
     }
-  }, [
-    RecognitionClass,
-    continuous,
-    interimResults,
-    isSupported,
-    lang,
-    onFinalResult,
-    partialTranscript,
-  ]);
+  }, [RecognitionClass, continuous, interimResults, isSupported, lang, onFinalResult, isRecording]);
 
   const stop = useCallback(() => {
     try {
