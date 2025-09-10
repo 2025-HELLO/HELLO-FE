@@ -60,7 +60,7 @@ export const button = style([
     height: '4.4rem',
     borderRadius: '1.2rem',
     background: colors.grey09,
-    color: colors.white01,
+    color: colors.black01,
     border: 'none',
     cursor: 'pointer',
   },
