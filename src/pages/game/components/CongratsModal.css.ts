@@ -40,6 +40,8 @@ export const badge = style([
   },
 ]);
 
+export const emoji = style([{ fontSize: '6rem' }]);
+
 export const title = style([fonts.subtitle04, { color: colors.black01, textAlign: 'center' }]);
 export const subtitle = style([fonts.body01, { color: colors.black01, textAlign: 'center' }]);
 

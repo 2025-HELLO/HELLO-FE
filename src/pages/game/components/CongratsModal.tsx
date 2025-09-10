@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { useConfettiCanvas } from '../hooks/useConfettiCanvas';
 import * as s from './CongratsModal.css';
@@ -14,6 +14,17 @@ const CongratsModal = ({ time, onEnd, onRestart }: Props) => {
 
   useConfettiCanvas(canvasHostRef);
 
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    };
+    window.addEventListener('keydown', onKeyDown, true);
+    return () => window.removeEventListener('keydown', onKeyDown, true);
+  }, []);
+
   return (
     <div
       ref={canvasHostRef}
@@ -25,7 +36,7 @@ const CongratsModal = ({ time, onEnd, onRestart }: Props) => {
     >
       <div className={s.panel} onClick={(e) => e.stopPropagation()}>
         <div className={s.badge} aria-hidden>
-          <span style={{ fontSize: '6rem' }}>👻</span>
+          <span className={s.emoji}>👻</span>
         </div>
         <h2 id="congrats-title" className={s.title}>
           축하합니다!

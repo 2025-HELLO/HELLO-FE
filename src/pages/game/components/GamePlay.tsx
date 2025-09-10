@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import * as s from '../page/Game.css';
 import CongratsModal from './CongratsModal';
 
+import { PATH } from '@/shared/constants/path';
 import { useOverlayModal } from '@/common/hooks/useOverlayModal';
 import GameCard from '@/pages/game/components/GameCard';
 import { IcClock } from '@/assets/svgs';
@@ -42,7 +43,7 @@ const GamePlay = ({ cards, formattedTime, allMatched, onRestart, locking, onPick
       />
     )).then((res) => {
       if (res === 'end') {
-        navigate(-1);
+        window.location.assign(PATH.GAME);
       } else if (res === 'restart') {
         onRestart();
         openedRef.current = false;
