@@ -57,7 +57,7 @@ const GamePlay = ({ cards, formattedTime, allMatched, onRestart, locking, onPick
         <div className={s.bar} />
         <div className={s.time}>
           <IcClock className={s.clock} aria-hidden />
-          {formattedTime}
+          <span className={s.timeText}>{formattedTime}</span>
         </div>
         <div className={s.bar} />
       </div>

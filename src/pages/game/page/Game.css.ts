@@ -19,11 +19,9 @@ export const container = style([
 
 export const playTopBar = style([layout.flexColumn, { width: '100%', gap: '1rem' }]);
 
-export const time = style([
-  layout.flexCenter,
-  fonts.display01,
-  { color: colors.grey02, gap: '0.8rem' },
-]);
+export const time = style([layout.flexCenter, { gap: '0.8rem' }]);
+
+export const timeText = style([fonts.display01, { marginTop: '0.5rem' }]);
 
 export const clock = style([{ width: '2.8rem', height: '2.8rem' }]);
 
