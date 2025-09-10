@@ -1,6 +1,7 @@
 import * as s from '../page/Game.css';
 
 import GameCard from '@/pages/game/components/GameCard';
+import { IcClock } from '@/assets/svgs';
 import type { Card } from '@/pages/game/hooks/useMemoryGame';
 
 interface Props {
@@ -15,7 +16,10 @@ const GamePlay = ({ cards, formattedTime, locking, onPick }: Props) => {
     <section className={s.container}>
       <div className={s.playTopBar}>
         <div className={s.bar} />
-        <div className={s.time}>⏱ {formattedTime}</div>
+        <div className={s.time}>
+          <IcClock className={s.clock} aria-hidden />
+          {formattedTime}
+        </div>
         <div className={s.bar} />
       </div>
 

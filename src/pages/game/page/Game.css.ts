@@ -93,17 +93,20 @@ export const textBtn = style([
 export const bar = style([{ height: '0.6rem', background: colors.blue02, borderRadius: '15px' }]);
 
 export const time = style([
-  fonts.title04,
+  layout.flexCenter,
+  fonts.display01,
   {
     color: colors.grey02,
-    display: 'flex',
     gap: '0.8rem',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 ]);
 
-export const clock = style([{ fontSize: '2rem' }]);
+export const clock = style([
+  {
+    width: '2.8rem',
+    height: '2.8rem',
+  },
+]);
 
 export const board = style([
   {
