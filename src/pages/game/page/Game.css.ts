@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { colors, fonts, layout } from '@/styles/token';
+import { colors, fonts, layout, zIndex } from '@/styles/token';
 
 export const container = style([
   layout.flexColumn,
@@ -13,19 +13,29 @@ export const container = style([
     boxSizing: 'border-box',
     gap: '1.6rem',
     background: colors.white01,
+    position: 'relative',
   },
 ]);
 
-export const desc = style([fonts.body03, { color: colors.grey07 }]);
+export const playTopBar = style([layout.flexColumn, { width: '100%', gap: '1rem' }]);
 
-export const bubble = style([
+export const time = style([
   layout.flexCenter,
+  fonts.display01,
+  { color: colors.grey02, gap: '0.8rem' },
+]);
+
+export const clock = style([{ width: '2.8rem', height: '2.8rem' }]);
+
+export const bar = style([{ height: '0.6rem', background: colors.blue02, borderRadius: '15px' }]);
+
+export const board = style([
   {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gap: '1.4rem',
     width: '100%',
-    minHeight: '5.4rem',
-    borderRadius: '16px',
-    background: colors.blue10,
-    padding: '1.4rem 1.6rem',
+    marginTop: '0.4rem',
   },
 ]);
 
@@ -42,18 +52,11 @@ export const bubbleRow = style([
     margin: '0 auto',
   },
 ]);
-
 export const bubbleIcon = style([{ width: '4rem', height: '4rem' }]);
 
 export const bubbleText = style([fonts.body01, { color: colors.black01 }]);
 
-export const examples = style([
-  {
-    display: 'grid',
-    gridTemplateColumns: '1fr',
-    gap: '3rem',
-  },
-]);
+export const examples = style([{ display: 'grid', gridTemplateColumns: '1fr', gap: '3rem' }]);
 
 export const exampleRow = style([
   {
@@ -68,52 +71,45 @@ export const exampleRow = style([
   },
 ]);
 
-export const exampleCard = style([
-  {
-    width: '11rem',
-  },
-]);
+export const exampleCard = style([{ width: '11rem' }]);
 
 export const buttonBox = style([layout.flexCenter, { marginTop: '5rem' }]);
 
-export const playTopBar = style([layout.flexColumn, { width: '100%', gap: '1rem' }]);
+export const textBtn = style([
+  fonts.caption01,
+  { color: colors.blue07, background: 'transparent', border: 'none', cursor: 'pointer' },
+]);
 
 export const playTitle = style([fonts.subtitle04, { color: colors.black01 }]);
 
-export const textBtn = style([
-  fonts.caption01,
-  {
-    color: colors.blue07,
-    background: 'transparent',
-    border: 'none',
-    cursor: 'pointer',
-  },
-]);
+export const desc = style([fonts.body03, { color: colors.grey07 }]);
 
-export const bar = style([{ height: '0.6rem', background: colors.blue02, borderRadius: '15px' }]);
-
-export const time = style([
+export const bubble = style([
   layout.flexCenter,
-  fonts.display01,
   {
-    color: colors.grey02,
-    gap: '0.8rem',
-  },
-]);
-
-export const clock = style([
-  {
-    width: '2.8rem',
-    height: '2.8rem',
-  },
-]);
-
-export const board = style([
-  {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
-    gap: '1.4rem',
     width: '100%',
-    marginTop: '0.4rem',
+    minHeight: '5.4rem',
+    borderRadius: '16px',
+    background: colors.blue10,
+    padding: '1.4rem 1.6rem',
   },
 ]);
+
+export const cueOverlay = style([
+  layout.flexCenter,
+  {
+    position: 'fixed',
+    inset: 0,
+    width: '100vw',
+    height: '100dvh',
+    zIndex: zIndex.overlay,
+    pointerEvents: 'auto',
+  },
+]);
+
+export const cuePanel = style([
+  layout.flexCenter,
+  { width: '100%', maxWidth: '43rem', height: '100dvh', background: colors.black01_70 },
+]);
+
+export const cueText = style([fonts.display02, { color: colors.white01 }]);
