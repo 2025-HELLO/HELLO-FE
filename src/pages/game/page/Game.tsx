@@ -7,7 +7,8 @@ import GameCue from '../components/GameCue';
 import { useMemoryGame } from '@/pages/game/hooks/useMemoryGame';
 
 const Game = () => {
-  const { started, cards, formattedTime, locking, startGame, pickCard } = useMemoryGame();
+  const { started, cards, formattedTime, allMatched, restartGame, locking, startGame, pickCard } =
+    useMemoryGame();
   const [cue, setCue] = useState<'idle' | 'ready' | 'go'>('idle');
 
   const handleStartWithCue = () => {
@@ -27,7 +28,14 @@ const Game = () => {
   }
 
   return (
-    <GamePlay cards={cards} formattedTime={formattedTime} locking={locking} onPick={pickCard} />
+    <GamePlay
+      cards={cards}
+      formattedTime={formattedTime}
+      allMatched={allMatched}
+      onRestart={restartGame}
+      locking={locking}
+      onPick={pickCard}
+    />
   );
 };
 
