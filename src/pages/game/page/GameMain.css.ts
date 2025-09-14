@@ -3,11 +3,54 @@ import { style } from '@vanilla-extract/css';
 /* 페이지 래퍼 */
 export const wrap = style({
   minHeight: '100vh',
-  padding: '20px 0 32px', // ✅ 좌우 여백을 없애고
+  padding: '20px 0 32px',
   display: 'grid',
   rowGap: 20,
   boxSizing: 'border-box',
-  justifyItems: 'center', // ✅ 내부 컨텐츠를 모두 가운데 고정
+  justifyItems: 'center',
+});
+
+/* 상단 날짜 헤더: 2열 */
+export const dateWrap = style({
+  width: '84%',
+  maxWidth: 430,
+  display: 'grid',
+  gridTemplateColumns: 'auto 1fr',
+  columnGap: 10,
+  alignItems: 'center',
+});
+
+/* 왼쪽: 큰 숫자 */
+export const dateBig = style({
+  fontSize: 37, // ← 기준 높이
+  fontWeight: 500,
+  lineHeight: 1,
+});
+
+/* 오른쪽: 숫자 높이에 딱 맞추기 */
+export const dateMeta = style({
+  height: 30, // ← dateBig과 동일 높이로 고정 (36px)
+  display: 'flex',
+
+  flexDirection: 'column',
+  justifyContent: 'space-between', // 위/아래로 분배
+});
+
+/* 텍스트는 여백/행간으로 튀지 않게 */
+export const dateDow = style({
+  color: '#9aa1a9',
+  fontSize: 15,
+  fontWeight: 500,
+  lineHeight: 1, // ← 튀지 않게
+  margin: 0,
+});
+
+export const dateYearMonth = style({
+  color: '#b8bec6',
+  fontSize: 14,
+  fontWeight: 500,
+  lineHeight: 2, // ← 튀지 않게
+  margin: 0,
 });
 
 /* 상단 연속 학습 카드 */
@@ -15,10 +58,10 @@ export const streakCard = style({
   background: '#5C84B9',
   color: '#fff',
   borderRadius: 20,
-  padding: '16px 24px',
+  padding: '26px 24px',
   minHeight: 120,
-  width: '84%', // ✅ 전체폭 기준 동일폭
-  maxWidth: 430, // 모바일 기준 최대폭 고정
+  width: '84%',
+  maxWidth: 430,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
@@ -41,34 +84,31 @@ export const ringWrap = style({
 
 /* 섹션 타이틀 */
 export const sectionTitle = style({
-  width: '84%', // ✅ 상단 카드와 동일 폭
+  width: '84%',
   maxWidth: 430,
   fontSize: 18,
   fontWeight: 800,
   marginTop: 20,
+  marginBottom: 10,
 });
 
-/* === 오늘의 추천 게임: 1행 2열 ===
-   두 열의 윗변/아랫변 일치 */
+/* 오늘의 추천 게임 */
 export const twoCols = style({
-  width: '84%', // 상단 카드랑 동일
-  //maxWidth: 430,
+  width: '84%',
   display: 'grid',
   gridTemplateColumns: 'max-content max-content',
-  columnGap: 40, // 열 사이 간격(원하면 더/덜)
-  //justifyContent: 'center', // ✅ 두 열 묶음을 가운데로 모음 (← 핵심)
+  columnGap: 40,
   alignItems: 'stretch',
 });
 
-/* 각 열: 위/아래 고정 */
 export const col = style({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
-  gap: 1, // ✅ 세로 간격 좁힘 (기존 gap 없음 → 12)
+  gap: 18,
 });
 
-/* SVG 버튼 = 이미지 자체를 클릭 */
+/* SVG 버튼 */
 export const imgButton = style({
   display: 'block',
   padding: 0,
@@ -79,6 +119,6 @@ export const imgButton = style({
 
 export const img = style({
   display: 'block',
-  width: '114%', // ✅ 원본보다 약간 크게
+  width: '114%',
   height: 'auto',
 });
