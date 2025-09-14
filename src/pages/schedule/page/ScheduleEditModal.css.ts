@@ -12,6 +12,9 @@ export const overlay = style({
   // 앱 프레임이 세로 중앙에 있을 때 하단 시트가 너무 붙지 않도록 패딩
   padding: '16px',
   boxSizing: 'border-box',
+  fontFamily: "'Pretendard', sans-serif", // ✅ 글꼴 강제 지정
+  appearance: 'none', // ✅ 브라우저 기본 스타일 제거
+  WebkitAppearance: 'none', // ✅ Safari 대응
 });
 
 /* 하단 시트(모달 본체) — 전역 max-width(=430px) 안으로 강제 */
@@ -75,6 +78,8 @@ export const textarea = style({
   fontSize: 15,
   resize: 'vertical',
   boxSizing: 'border-box',
+  fontFamily: "'Pretendard', sans-serif", // ✅ 글꼴 강제 지정
+
   selectors: { '&:focus': { outline: '2px solid #cfe5ff', borderColor: '#9cc6ff' } },
 });
 
