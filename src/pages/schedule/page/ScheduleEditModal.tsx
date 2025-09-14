@@ -64,8 +64,8 @@ export default function ScheduleEditModal({ initial, onClose, onSave, onDelete }
     <div className={s.overlay} onClick={closeOnOverlay}>
       <div className={s.modal} onClick={stop}>
         <header className={s.header}>
-          <button type="button" className={s.backBtn} aria-label="닫기" onClick={onClose}>
-            ←
+          <button type="button" aria-label="닫기" onClick={onClose}>
+            <img src="/svgs/ic_back.svg" alt="뒤로가기" /> {/* ✅ 아이콘 변경 */}
           </button>
           <h2 className={s.title}>일정 수정하기</h2>
           <div style={{ width: 36 }} />

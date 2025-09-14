@@ -9,12 +9,15 @@ export const overlay = style({
   justifyContent: 'center',
   alignItems: 'flex-end',
   zIndex: 1000,
+  // 앱 프레임이 세로 중앙에 있을 때 하단 시트가 너무 붙지 않도록 패딩
+  padding: '16px',
+  boxSizing: 'border-box',
 });
 
-/* 하단 시트(모달 본체) */
+/* 하단 시트(모달 본체) — 전역 max-width(=430px) 안으로 강제 */
 export const modal = style({
-  width: '100%',
-  maxWidth: 540,
+  width: 'min(100%, var(--max-width))', // ✅ 전역 변수에 맞춤
+  maxWidth: 'var(--max-width)', // ✅ 430px
   background: '#fff',
   borderTopLeftRadius: 20,
   borderTopRightRadius: 20,
@@ -22,6 +25,9 @@ export const modal = style({
   padding: '20px 16px 24px',
   maxHeight: '88vh',
   overflowY: 'auto',
+  boxSizing: 'border-box',
+  // iOS 안전영역 대응
+  paddingBottom: 'max(24px, env(safe-area-inset-bottom))',
 });
 
 /* 헤더 */
@@ -31,15 +37,7 @@ export const header = style({
   gap: 8,
   marginBottom: 16,
 });
-export const backBtn = style({
-  width: 36,
-  height: 36,
-  borderRadius: '50%',
-  border: '1px solid #eee',
-  background: '#fff',
-  fontSize: 18,
-  lineHeight: '36px',
-});
+
 export const title = style({
   flex: 1,
   textAlign: 'center',
@@ -65,6 +63,7 @@ export const input = style({
   borderRadius: 12,
   border: '1px solid #E6E6E6',
   fontSize: 15,
+  boxSizing: 'border-box',
   selectors: { '&:focus': { outline: '2px solid #cfe5ff', borderColor: '#9cc6ff' } },
 });
 export const textarea = style({
@@ -75,6 +74,7 @@ export const textarea = style({
   border: '1px solid #E6E6E6',
   fontSize: 15,
   resize: 'vertical',
+  boxSizing: 'border-box',
   selectors: { '&:focus': { outline: '2px solid #cfe5ff', borderColor: '#9cc6ff' } },
 });
 
@@ -93,15 +93,21 @@ export const saveBtn = style({
   fontWeight: 700,
   fontSize: 16,
   cursor: 'pointer',
+  display: 'flex', // ✅ 추가
+  alignItems: 'center', // ✅ 세로 가운데
+  justifyContent: 'center', // ✅ 가로 가운데
   selectors: { '&:disabled': { opacity: 0.5, cursor: 'default' } },
 });
 export const deleteBtn = style({
   height: 44,
   borderRadius: 12,
-  border: '1px solid #FFD6D6',
+  //border: '1px solid #FFD6D6',
   background: '#FFF2F2',
   color: '#D44',
   fontWeight: 600,
   fontSize: 15,
   cursor: 'pointer',
+  display: 'flex', // ✅ 추가
+  alignItems: 'center', // ✅ 세로 가운데
+  justifyContent: 'center', // ✅ 가로 가운데
 });
