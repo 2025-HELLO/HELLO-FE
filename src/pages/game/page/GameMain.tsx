@@ -137,7 +137,7 @@ export default function GameMain() {
           <button
             type="button"
             className={s.imgButton}
-            onClick={() => navigate(`${PATH.GAME}/picture-match`)}
+            onClick={() => navigate(PATH.GAME)}
             aria-label="같은 그림 카드 찾기"
             title="같은 그림 카드 찾기"
           >
