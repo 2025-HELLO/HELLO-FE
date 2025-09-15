@@ -1,7 +1,8 @@
+// src/pages/game/GameMain.tsx
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import { PATH } from '@shared/constants/path';
+
 import * as s from './GameMain.css.ts';
 
 /* ✅ 상단 날짜 포맷 (오늘) */

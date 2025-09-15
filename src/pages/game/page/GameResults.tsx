@@ -1,11 +1,13 @@
+// src/pages/game/GameResults.tsx
 import { useNavigate } from 'react-router-dom';
-import * as s from './GameResults.css';
 import { PATH } from '@shared/constants/path';
+
+import * as s from './GameResults.css.ts';
 
 export default function GameResults() {
   const navigate = useNavigate();
 
-  // 임시 데이터 (실제 데이터로 교체 가능)
+  // 실제 데이터는 서버 연동 시 교체
   const players = [
     { id: '01', name: '양서연', time: '05:20' },
     { id: '02', name: '임지수', time: '05:20' },
@@ -16,18 +18,23 @@ export default function GameResults() {
 
   return (
     <div className={s.wrap}>
-      <h1 className={s.title}>게임 결과입니다.</h1>
+      {/* 상단 제목 박스 */}
+      <div className={s.titleBox}>
+        <h1 className={s.titleText}>게임 결과입니다.</h1>
+      </div>
 
-      <ul className={s.list}>
+      {/* 결과 표 */}
+      <ul className={s.listBox}>
         {players.map((p) => (
           <li key={p.id} className={s.item}>
             <span className={s.rank}>{p.id}</span>
             <span className={s.name}>{p.name}</span>
-            <span className={s.time}>{p.time}</span>
+            <span className={s.timePill}>{p.time}</span>
           </li>
         ))}
       </ul>
 
+      {/* 게임 시작 버튼 */}
       <button className={s.startBtn} onClick={() => navigate(PATH.GAME)}>
         게임 시작
       </button>
