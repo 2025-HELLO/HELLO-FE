@@ -147,7 +147,7 @@ export default function GameMain() {
           <button
             type="button"
             className={s.imgButton}
-            onClick={() => navigate(`${PATH.GAME}/results`)}
+            onClick={() => navigate(PATH.GAME_RESULTS)}
             aria-label="게임 결과 보러가기"
             title="게임 결과 보러가기"
           >
